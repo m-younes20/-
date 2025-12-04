@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ماشین حساب پیشرفته</title>
+<link rel="stylesheet" href="default.css">
+</head>
+<body>
+<div class="container">
+  <div class="app">
+    <div class="panel">
+      <div class="header">
+        <div class="brand">
+          <div class="dot"></div>
+          <h1>ماشین حساب پیشرفته</h1>
+        </div>
+        <button class="btn" id="help-btn">راهنما</button>
+      </div>
+
+      <div class="display">
+        <div class="expr" id="expr"></div>
+        <div class="result" id="result">0</div>
+      </div>
+
+      <div class="section-title">کلیدها و توابع</div>
+      <div class="keypad" id="keypad">
+        <div class="key op" data-key="sin(">sin</div>
+        <div class="key op" data-key="cos(">cos</div>
+        <div class="key op" data-key="tan(">tan</div>
+        <div class="key op" data-key="log(">log</div>
+        <div class="key op" data-key="sqrt(">√</div>
+        <div class="key op" data-key="^">x^y</div>
+        <div class="key" data-key="(">(</div>
+        <div class="key" data-key=")">)</div>
+        <div class="key btn-danger" data-key="C">C</div>
+        <div class="key" data-key="DEL">DEL</div>
+        <div class="key" data-key=".">.</div>
+        <div class="key equal wide" data-key="=">=</div>
+        <div class="key" data-key="7">7</div>
+        <div class="key" data-key="8">8</div>
+        <div class="key" data-key="9">9</div>
+        <div class="key op" data-key="/">÷</div>
+        <div class="key op" data-key="*">×</div>
+        <div class="key op" data-key="-">−</div>
+
+        <div class="key" data-key="4">4</div>
+        <div class="key" data-key="5">5</div>
+        <div class="key" data-key="6">6</div>
+        <div class="key op" data-key="+">+</div>
+        <div class="key" data-key="1">1</div>
+        <div class="key" data-key="2">2</div>
+
+        <div class="key" data-key="3">3</div>
+        <div class="key" data-key="0">0</div>
+        <div class="key" data-key="pi">π</div>
+        <div class="key" data-key="e">e</div>
+        <div class="key wide btn-primary" id="smart-fix">هوشمندسازی ورودی</div>
+      </div>
+
+      <div class="section-title">نکته: کلید Enter نتیجه را محاسبه می‌کند، Backspace حذف می‌کند.</div>
+    </div>
+    <div class="panel">
+      <div class="header">
+        <div class="brand">
+          <div class="dot"></div>
+          <h1>تبدیل مبنا ۲/۸/۱۰/۱۶</h1>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="field">
+          <label>عدد ورودی</label>
+          <input id="base-input" class="input" placeholder="مثال: FF یا 1011 یا 255" />
+        </div>
+        <div class="field">
+          <label>مبنای ورودی</label>
+          <select id="base-from">
+            <option value="2">2</option>
+            <option value="8">8</option>
+            <option value="10" selected>10</option>
+            <option value="16">16</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>مبنای خروجی</label>
+          <select id="base-to">
+            <option value="2">2</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="16" selected>16</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="convert-btn">تبدیل</button>
+      </div>
+      <div class="flex">
+        <div class="field">
+          <label>نتیجه تبدیل</label>
+          <input id="base-output" class="input" readonly />
+        </div>
+        <div class="field">
+          <label>وضعیت</label>
+          <div id="base-status" class="muted">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel" style="position: fixed; right: 16px; bottom: 16px; max-width: 520px; display:none;" id="help-panel">
+  <div class="header">
+    <div class="brand">
+      <div class="dot"></div>
+      <h1>راهنمای سریع</h1>
+    </div>
+    <button class="btn" id="help-close">بستن</button>
+  </div>
+  <ul style="margin:0; padding:0 18px;">
+    <li>عملیات: + − × ÷، توان با ^، جزر با √ یا sqrt()</li>
+    <li>توابع: sin(), cos(), tan(), log() — ورودی‌ها به‌صورت رادیان هستند.</li>
+    <li>پرانتزها برای اولویت‌دهی استفاده شوند.</li>
+    <li>تبدیل مبنا بین ۲/۸/۱۰/۱۶؛ اعشاری‌ها تا ۱۲ رقم مشمول تبدیل‌اند.</li>
+    <li>کلید Enter محاسبه، Backspace حذف، C پاک‌سازی کامل، DEL حذف یک کاراکتر.</li>
+    <li>هوشمندسازی ورودی: جایگزینی نمادها و ضرب ضمنی (نمونه: 2(3) → 2* (3)).</li>
+  </ul>
+</div>
+
+<script src="js.js"></script>
+</body>
+</html>
